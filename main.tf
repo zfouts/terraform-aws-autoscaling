@@ -13,7 +13,7 @@ resource "aws_launch_configuration" "this" {
   associate_public_ip_address = "${var.associate_public_ip_address}"
   user_data                   = "${var.user_data}"
   enable_monitoring           = "${var.enable_monitoring}"
-  placement_tenancy           = "${var.placement_tenancy}"
+  #placement_tenancy           = "${var.placement_tenancy}"
   ebs_optimized               = "${var.ebs_optimized}"
   ebs_block_device            = "${var.ebs_block_device}"
   ephemeral_block_device      = "${var.ephemeral_block_device}"
@@ -23,7 +23,7 @@ resource "aws_launch_configuration" "this" {
     create_before_destroy = true
   }
 
-  # spot_price                  = "${var.spot_price}"  // placement_tenancy does not work with spot_price
+  spot_price                  = "${var.spot_price}"  // placement_tenancy does not work with spot_price
 }
 
 ####################
